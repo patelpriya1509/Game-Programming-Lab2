@@ -37,13 +37,13 @@ void ACustomMovementPawn::MoveForward(float Amount)
 	* Here we declare we are only changing Yaw rotation, other ones are stable as 0.0f
 	*/
 	//DECLARE a FRotator called YawRotation and Initialize its pitch=0, roll=0 and the yaw=the controller rotation's yaw
-	FRotator YawRotation(0, GetControlRotation().Yaw, 0);
+	FRotator YawRotation(0, Rotation.Yaw, 0);
 	
 	/*
 	* EAxis::X -> is making us move at the direction X!
 	*/
 	//DECLARE a FVector Direction and assign it to FRotationMatrix(??).GetUnitAxis(??);
-	FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
+	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 
 	/*
 	* Apply the forward and back movement
@@ -73,13 +73,13 @@ void ACustomMovementPawn::MoveRight(float Amount)
 	* Here we declared we are only changing Yaw rotation, other ones are stable as 0.0f
 	*/
 	//DECLARE a FRotator called YawRotation and Initialize its pitch=0, roll=0 and the yaw=the controller rotation's yaw
-	FRotator YawRotation(0, GetControlRotation().Yaw, 0);
+	FRotator YawRotation(0, Rotation.Yaw, 0);
 
 	/*
 	* EAxis::Y -> is making us move at the direction Y!
 	*/
 	//DECLARE a FVector Direction and assign it to FRotationMatrix(??).GetUnitAxis(??);
-	FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y);
+	FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
 	/*
 	* Apply the right and left movement
